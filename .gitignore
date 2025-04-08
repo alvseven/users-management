@@ -1,0 +1,17 @@
+# pnpm 
+
+.pnpm-debug.log*
+
+# Dependency directories
+node_modules/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# dotenv environment variable file
+.env
+
+# build
+
+build/
+dist/
