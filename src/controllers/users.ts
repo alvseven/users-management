@@ -1,9 +1,12 @@
 import type { Request, Response } from "express";
 
-import { usersService } from "../services/users";
+import {
+	createUserRequestSchema,
+	userLoginRequestSchema,
+} from "src/dtos/users";
+import type { Result } from "src/helpers/api-response";
 import { validateSchema } from "../dtos/validate-schema";
-import { createUserRequestSchema, userLoginRequestSchema } from "src/dtos/users";
-import { Result } from "src/helpers/api-response";
+import { usersService } from "../services/users";
 
 const handleResponse = <T>(result: Result<T>, response: Response) => {
 	if (result.status === "error") {
@@ -17,15 +20,14 @@ export const usersController = () => {
 	const { createUser, getUsers, authenticate } = usersService();
 
 	const create = async (request: Request, response: Response) => {
+		const parsedRequest = validateSchema(createUserRequestSchema, request.body);
 
-    const parsedRequest = validateSchema(createUserRequestSchema, request.body);
-
-    if (!parsedRequest.success) {
-      return response.status(400).json({
-        status: "error",
-        message: parsedRequest.errors,
-      });
-    }
+		if (!parsedRequest.success) {
+			return response.status(400).json({
+				status: "error",
+				message: parsedRequest.errors,
+			});
+		}
 
 		const userCreationResult = await createUser(parsedRequest.data);
 
@@ -39,14 +41,14 @@ export const usersController = () => {
 	};
 
 	const login = async (request: Request, response: Response) => {
-    const parsedRequest = validateSchema(userLoginRequestSchema, request.body);
+		const parsedRequest = validateSchema(userLoginRequestSchema, request.body);
 
-        if (!parsedRequest.success) {
-      return response.status(400).json({
-        status: "error",
-        message: parsedRequest.errors,
-      });
-    }
+		if (!parsedRequest.success) {
+			return response.status(400).json({
+				status: "error",
+				message: parsedRequest.errors,
+			});
+		}
 
 		const userAuthenticationResult = await authenticate(parsedRequest.data);
 

@@ -1,5 +1,5 @@
-import { sign } from "jsonwebtoken";
 import { compareSync } from "bcryptjs";
+import { sign } from "jsonwebtoken";
 
 import { parsedEnvs } from "src/config/envs";
 
