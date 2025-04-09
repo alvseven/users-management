@@ -44,7 +44,7 @@ export const usersRepository = () => {
 	};
 
 	const findByEmail = async (email: UserModel["email"]) => {
-		const user = repository.findUnique({
+		const user = await repository.findUnique({
 			where: {
 				email,
 			},
@@ -54,7 +54,7 @@ export const usersRepository = () => {
 	};
 
 	const findByDocument = async (document: UserModel["document"]) => {
-		const user = repository.findUnique({
+		const user = await repository.findUnique({
 			where: {
 				document,
 			},
