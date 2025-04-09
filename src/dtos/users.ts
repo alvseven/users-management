@@ -1,9 +1,8 @@
 import { z } from "zod";
 
 export const createUserRequestSchema = z.object({
-	id: z.string(),
 	name: z.string(),
-	email: z.string(),
+	email: z.string().email(),
 	document: z.string().length(11),
 	password: z
 		.string()

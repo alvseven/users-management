@@ -1,3 +1,4 @@
+import { cpfMask } from "src/helpers/cpf-mask";
 import type { StrictOmit } from "src/helpers/types/strict-omit";
 import { type UserModel, prisma } from "../database/prisma-client";
 
@@ -5,9 +6,25 @@ export const usersRepository = () => {
 	const repository = prisma.user;
 
 	const getAll = async () => {
-		const users = repository.findMany();
+		const users = await repository.findMany({
+			select: {
+				id: true,
+				name: true,
+				email: true,
+				document: true,
+				createdAt: true,
+				password: false,
+			},
+		});
 
-		return users;
+		const usersWithMaskedCpf = users.map((user) => {
+			return {
+				...user,
+				document: cpfMask(user.document),
+			};
+		});
+
+		return usersWithMaskedCpf;
 	};
 
 	const create = async (user: StrictOmit<UserModel, "id" | "createdAt">) => {
@@ -23,7 +40,7 @@ export const usersRepository = () => {
 			},
 		});
 
-		return createdUser;
+		return { ...createdUser, document: cpfMask(createdUser.document) };
 	};
 
 	const findByEmail = async (email: UserModel["email"]) => {

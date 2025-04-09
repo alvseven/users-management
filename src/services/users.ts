@@ -1,4 +1,4 @@
-import { compareSync } from "bcryptjs";
+import { compareSync, hashSync } from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 import { parsedEnvs } from "src/config/envs";
@@ -24,10 +24,11 @@ export const usersService = () => {
 
 		if (documentIsBeingUsed) {
 			return error("O CPF já está sendo utilizado", 409);
-
 		}
 
-		const createdUser = await create(user);
+		const hashedPassword = hashSync(user.password);
+
+		const createdUser = await create({ ...user, password: hashedPassword });
 
 		return success(createdUser, 201);
 	};
@@ -62,7 +63,7 @@ export const usersService = () => {
 			},
 		);
 
-		return success(token, 200);
+		return success({ token }, 200);
 	};
 
 	return {

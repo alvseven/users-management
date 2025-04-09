@@ -13,7 +13,7 @@ export const handleError = async (
 	if (error.name === "SyntaxError" && error.message.includes("JSON")) {
 		return response.status(400).json({
 			status: "error",
-			message: "Invalid JSON",
+			message: "Formato JSON inválido",
 		});
 	}
 
