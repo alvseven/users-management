@@ -4,11 +4,8 @@
 		"target": "ES2022",
 		"module": "ES2022",
 		"moduleResolution": "node",
-		"rootDir": ".",
+		"rootDir": "./src",
 		"baseUrl": "./",
-		"paths": {
-			"@/*": ["./src/*"]
-		},
 		"outDir": "dist",
 		"moduleDetection": "force",
 		"isolatedModules": true,
