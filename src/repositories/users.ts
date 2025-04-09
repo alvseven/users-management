@@ -1,5 +1,5 @@
-import { cpfMask } from "src/helpers/cpf-mask";
-import type { StrictOmit } from "src/helpers/types/strict-omit";
+import { cpfMask } from "../helpers/cpf-mask";
+import type { StrictOmit } from "../helpers/types/strict-omit";
 import { type UserModel, prisma } from "../database/prisma-client";
 
 export const usersRepository = () => {

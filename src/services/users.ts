@@ -1,13 +1,13 @@
 import { compareSync, hashSync } from "bcryptjs";
 import jwt from "jsonwebtoken";
 
-import { parsedEnvs } from "src/config/envs";
+import { parsedEnvs } from "../config/envs";
 
-import type { CreateUserRequest, userLoginRequest } from "src/dtos/users";
+import type { CreateUserRequest, userLoginRequest } from "../dtos/users";
 
-import { error, success } from "src/helpers/api-response";
+import { error, success } from "../helpers/api-response";
 
-import { usersRepository } from "src/repositories/users";
+import { usersRepository } from "../repositories/users";
 
 export const usersService = () => {
 	const { create, getAll, findByEmail, findByDocument } = usersRepository();

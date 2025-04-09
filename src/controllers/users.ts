@@ -3,8 +3,8 @@ import type { Request, Response } from "express";
 import {
 	createUserRequestSchema,
 	userLoginRequestSchema,
-} from "src/dtos/users";
-import type { Result } from "src/helpers/api-response";
+} from "../dtos/users";
+import type { Result } from "../helpers/api-response";
 import { validateSchema } from "../dtos/validate-schema";
 import { usersService } from "../services/users";
 

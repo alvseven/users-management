@@ -1,6 +1,6 @@
 import type { ZodSchema } from "zod";
 
-import { zodCustomErrorMap } from "src/config/zod-error-map";
+import { zodCustomErrorMap } from "../config/zod-error-map";
 
 type SuccessParse<T> = {
 	success: true;
