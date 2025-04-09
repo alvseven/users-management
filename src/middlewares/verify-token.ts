@@ -1,6 +1,6 @@
 import type { NextFunction, Request, Response } from "express";
 
-import { verify } from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 
 import { parsedEnvs } from "../config/envs";
 
@@ -24,7 +24,7 @@ export const verifyToken = async (
 
 	const [_, token] = authorization.split(" ");
 
-	verify(token, parsedEnvs.JWT_SECRET, (error) => {
+	jwt.verify(token, parsedEnvs.JWT_SECRET, (error) => {
 		if (error) {
 			return response.status(403).json({
 				status: "error",

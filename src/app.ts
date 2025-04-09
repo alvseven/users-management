@@ -1,5 +1,3 @@
-import "express-async-errors";
-
 import express from "express";
 import pino from "pino-http";
 import pinoPretty from "pino-pretty";

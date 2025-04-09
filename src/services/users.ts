@@ -1,5 +1,5 @@
 import { compareSync } from "bcryptjs";
-import { sign } from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 
 import { parsedEnvs } from "src/config/envs";
 
@@ -19,11 +19,12 @@ export const usersService = () => {
 		]);
 
 		if (emailIsBeingUsed) {
-			return error("Email já está sendo utilizado", 409);
+			return error("O email já está sendo utilizado", 409);
 		}
 
 		if (documentIsBeingUsed) {
-			return error("CPF já está sendo utilizado", 409);
+			return error("O CPF já está sendo utilizado", 409);
+
 		}
 
 		const createdUser = await create(user);
@@ -50,7 +51,7 @@ export const usersService = () => {
 			return error("Email e/ou senha incorreto(s)", 401);
 		}
 
-		const token = sign(
+		const token = jwt.sign(
 			{
 				id: userFound.id,
 				email: userFound.email,

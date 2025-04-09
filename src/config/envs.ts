@@ -5,7 +5,7 @@ const envSchema = z.object({
 	PORT: z.coerce.number().positive(),
 	API_URL: z.string().startsWith("http"),
 	JWT_SECRET: z.string().min(1),
-	JWT_EXPIRES_IN: z.number(),
+	JWT_EXPIRES_IN: z.coerce.number(),
 });
 
 export const parsedEnvs = Object.freeze(envSchema.parse(process.env));
