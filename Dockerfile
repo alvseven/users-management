@@ -13,5 +13,3 @@ COPY . .
 
 RUN pnpm dlx prisma generate
 
-RUN pnpm run build
-
