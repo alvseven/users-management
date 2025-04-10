@@ -1,6 +1,6 @@
 # Users management API
 
-*(Sistema de gerenciamento de usuários com autenticação JWT)*  
+*Sistema de gerenciamento de usuários com autenticação JWT*  
 
 ## 🔧 Tecnologias  
 
