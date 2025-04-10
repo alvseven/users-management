@@ -31,7 +31,7 @@ git clone git@github.com:alvseven/users-management.git
 
 # Rode o docker-compose
 
-docker-compose up -d
+docker compose up -d
 ```
 
 ## 🧪 Testes
