@@ -16,7 +16,11 @@
 
 ## Variáveis de ambiente
 
-Antes de iniciar a aplicação, configure as variáveis de ambiente. Para facilitar o processo, um exemplo de arquivo .env está disponível no arquivo .env.example, basta copiá-lo e renomeá-lo para .env.
+Antes de iniciar a aplicação, configure as variáveis de ambiente. Para facilitar o processo, um exemplo de arquivo .env está disponível no arquivo .env.example, basta copiá-lo e renomeá-lo para .env
+
+```bash
+cp .env.example .env
+```
 
 ## ⚙️ Como rodar o projeto  
 
