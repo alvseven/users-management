@@ -29,7 +29,7 @@ cp .env.example .env
 
 git clone git@github.com:alvseven/users-management.git
 
-# Rode o docker-compose
+# Rode o docker compose
 
 docker compose up -d
 ```
