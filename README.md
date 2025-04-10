@@ -23,7 +23,7 @@ Antes de iniciar a aplicação, configure as variáveis de ambiente. Para facili
 ```bash
 # Clone o repositório
 
-git clone https://github.com/alves-dev/users-management-api.git 
+git clone git@github.com:alvseven/users-management.git
 
 # Rode o docker-compose
 
