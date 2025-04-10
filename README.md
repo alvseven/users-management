@@ -50,7 +50,7 @@ A documentação da API está disponível em formato Swagger e pode ser acessada
 /api-docs
 ```
 
-## Arquitetura da Aplicação
+## 📂 Arquitetura da Aplicação
 
 - Routes: Camada de roteamento, responsável por definir as rotas da aplicação
 
