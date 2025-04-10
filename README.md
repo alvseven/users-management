@@ -60,6 +60,8 @@ A documentação da API está disponível em formato Swagger e pode ser acessada
 
 - Services: Contém as regras de negócio da aplicação, responsável por atender às requisições feitas pelos controllers
 
+- Database: Camada responsável pela conexão e configuração do banco de dados, contendo instâncias e configurações necessárias para acesso aos dados
+
 - Repositories: Camada de persistência dos dados, responsável por interagir com o banco de dados
 
 - Middlewares: Camada de middlewares, responsável por interceptar as requisições HTTP e realizar algumas ações antes de passar para o próximo middleware ou para o controller
