@@ -1,11 +1,8 @@
 import type { Request, Response } from "express";
 
-import {
-	createUserRequestSchema,
-	userLoginRequestSchema,
-} from "../dtos/users";
-import type { Result } from "../helpers/api-response";
+import { createUserRequestSchema, userLoginRequestSchema } from "../dtos/users";
 import { validateSchema } from "../dtos/validate-schema";
+import type { Result } from "../helpers/api-response";
 import { usersService } from "../services/users";
 
 const handleResponse = <T>(result: Result<T>, response: Response) => {
