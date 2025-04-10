@@ -32,10 +32,16 @@ docker-compose up -d
 
 ## 🧪 Testes
 
-Para executar os testes unitários:
+Para executar os testes unitários, primeiro instale as dependências:
 
 ```bash
-# Executa todos os testes
+pnpm install
+```
+
+Após isso, execute algum dos seguintes comandos:
+
+```bash
+# Executa os testes
 pnpm test
 
 # Executa os testes em modo watch
@@ -68,7 +74,7 @@ A documentação da API está disponível em formato Swagger e pode ser acessada
 
 - Helpers: Camada de utilitários, responsável por fornecer funções e tipos úteis para o projeto
 
-- Config: Camada de configuração, responsável por carregar as configurações do projeto 
+- Config: Camada de configuração, responsável por carregar as configurações do projeto
 
 ### Considerações
 
