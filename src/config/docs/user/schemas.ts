@@ -1,32 +1,4 @@
 export const userSchemas = {
-	User: {
-		type: "object",
-		properties: {
-			id: {
-				type: "string",
-				example: "83588f3c-37cd-405b-b15e-25367b345344",
-			},
-			name: {
-				type: "string",
-				example: "John Doe",
-			},
-			email: {
-				type: "string",
-				format: "email",
-				example: "john@email.com",
-			},
-			document: {
-				type: "string",
-				description: "CPF do usuário",
-				example: "12345678909",
-			},
-			createdAt: {
-				type: "string",
-				format: "date-time",
-			},
-		},
-	},
-
 	CreateUserRequest: {
 		type: "object",
 		required: ["name", "email", "document", "password"],
@@ -144,8 +116,28 @@ export const userSchemas = {
 	CreateUserResponse: {
 		type: "object",
 		properties: {
-			data: {
-				$ref: "#/components/schemas/User",
+			id: {
+				type: "string",
+				value: "83588f3c-37cd-405b-b15e-25367b345344",
+			},
+			name: {
+				type: "string",
+				value: "John Doe",
+			},
+			email: {
+				type: "string",
+				format: "email",
+				value: "john@email.com",
+			},
+			document: {
+				type: "string",
+				description: "CPF do usuário com parte dos números ocultos",
+				value: "123.***.***-09",
+			},
+			createdAt: {
+				type: "string",
+				format: "date-time",
+				value: "2025-04-10T11:46:43.263Z",
 			},
 		},
 	},
@@ -161,12 +153,32 @@ export const userSchemas = {
 	},
 
 	ListUsersResponse: {
-		type: "object",
-		properties: {
-			data: {
-				type: "array",
-				items: {
-					$ref: "#/components/schemas/User",
+		type: "array",
+		items: {
+			type: "object",
+			properties: {
+				id: {
+					type: "string",
+					value: "83588f3c-37cd-405b-b15e-25367b345344",
+				},
+				name: {
+					type: "string",
+					value: "John Doe",
+				},
+				email: {
+					type: "string",
+					format: "email",
+					value: "john@email.com",
+				},
+				document: {
+					type: "string",
+					description: "CPF do usuário com parte dos números ocultos",
+					value: "123.***.***-09",
+				},
+				createdAt: {
+					type: "string",
+					format: "date-time",
+					value: "2025-04-10T11:56:32.131Z",
 				},
 			},
 		},

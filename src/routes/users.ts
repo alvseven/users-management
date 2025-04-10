@@ -68,6 +68,15 @@ usersRoutes.get("/", verifyToken, getAll);
  *             oneOf:
  *               - $ref: '#/components/schemas/EmailConflictResponse'
  *               - $ref: '#/components/schemas/DocumentConflictResponse'
+ *             examples:
+ *               emailConflict:
+ *                 value:
+ *                   status: "error"
+ *                   message: "O email já está sendo utilizado"
+ *               documentConflict:
+ *                 value:
+ *                   status: "error"
+ *                   message: "O CPF já está sendo utilizado"
  */
 usersRoutes.post("/", create);
 
